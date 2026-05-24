@@ -11,7 +11,15 @@ class Puzzle:
 
 class PuzzlePiece:
     def __init__(piece, haut, droite, bas, gauche):
-        piece.haut = haut
-        piece.droite = droite
-        piece.bas = bas
-        piece.gauche = gauche
+        piece.cotes = {"haut": haut, "droite": droite, "bas": bas, "gauche": gauche}
+        piece.type = piece.get_type()
+    def get_type(piece):
+        compteur_de_vide = 0
+        for cote in piece.cotes.values():
+            if cote == ():
+                compteur_de_vide += 1
+        if compteur_de_vide == 0:
+            return "centre"
+        elif compteur_de_vide == 1:
+            return "bord"
+        return "coin"
