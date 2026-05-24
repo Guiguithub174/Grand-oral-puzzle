@@ -15,5 +15,3 @@ class PuzzlePiece:
         piece.droite = droite
         piece.bas = bas
         piece.gauche = gauche
-
-    
